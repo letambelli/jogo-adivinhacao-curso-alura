@@ -4,15 +4,21 @@ import java.util.Scanner;
 public class JogoAdivinhacao {
     public static void main(String[] args) {
         Scanner leitura = new Scanner(System.in);
-        int numero = new Random().nextInt(100);
-        int tentativa = 0;
+        int numeroGerado = new Random().nextInt(100);
+        int numeroDigitado = 0;
+        int contador = 0;
 
         for (int i = 0; i < 5; i++) {
-            if (tentativa != numero) {
+            if (numeroDigitado != numeroGerado) {
+                System.out.println("-".repeat(25));
                 System.out.println("Adivinhe o número: ");
-                tentativa = leitura.nextInt();
-                System.out.println("Errou! Tente novamente.");
-                if (i == 4 && tentativa != numero) {
+                numeroDigitado = leitura.nextInt();
+                contador++;
+
+                if (numeroDigitado != numeroGerado) {
+                    System.out.println("Errou! Tente novamente.");
+                }
+                if (i == 4 && numeroDigitado != numeroGerado) {
                     System.out.println("Você errou todas! Mais sorte na próxima tentativa!");
                 }
             }
