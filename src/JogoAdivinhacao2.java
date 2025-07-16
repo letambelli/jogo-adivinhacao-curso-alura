@@ -9,21 +9,22 @@ public class JogoAdivinhacao2 {
         int contador = 0;
 
         while (contador < 5){
-            contador++;
             System.out.println("-".repeat(25));
             System.out.println("Adivinhe o numero: ");
             numeroDigitado = leitura.nextInt();
+            contador++;
 
             if (numeroDigitado == numeroGerado){
-                System.out.println("Parabéns! Você adivinhou!");
+                System.out.println("Parabéns! Você adivinhou em " + contador + "tentativas!");
                 break;
-            }
-            else {
-                System.out.println("Errou! Tente novamente!");
-                if (contador == 5 && numeroDigitado != numeroGerado) {
-                    System.out.println("Você errou todas! Mais sorte na próxima!");
-                }
+            } else if (numeroDigitado < numeroGerado) {
+                System.out.println("Maior.");
+            } else if (numeroDigitado > numeroGerado) {
+                System.out.println("Menor.");
             }
         }
-    }
-}
+        if (contador == 5 && numeroDigitado != numeroGerado) {
+        System.out.println("Você não conseguiu acertar em 5 tentativas. O número era: " + numeroGerado);
+    }}}
+
+

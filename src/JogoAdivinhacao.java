@@ -9,24 +9,23 @@ public class JogoAdivinhacao {
         int contador = 0;
 
         for (int i = 0; i < 5; i++) {
-            if (numeroDigitado != numeroGerado) {
-                System.out.println("-".repeat(25));
-                System.out.println("Adivinhe o número: ");
-                numeroDigitado = leitura.nextInt();
-                contador++;
+            System.out.println("-".repeat(25));
+            System.out.println("Adivinhe o número: ");
+            numeroDigitado = leitura.nextInt();
+            contador++;
 
-                if (numeroDigitado != numeroGerado) {
-                    System.out.println("Errou! Tente novamente.");
-                }
-                if (i == 4 && numeroDigitado != numeroGerado) {
-                    System.out.println("Você errou todas! Mais sorte na próxima tentativa!");
-                }
-            }
-            else {
-                System.out.println("Parabéns! Você adivinhou o número!");
+            if (numeroDigitado == numeroGerado) {
+                System.out.println("Parabéns! Você adivinhou o número em " + contador + " tentativas!");
                 break;
+            } else if (numeroDigitado < numeroGerado) {
+                System.out.println("Maior.");
+            } else if (numeroDigitado > numeroGerado) {
+                System.out.println("Menor.");
             }
+            }
+        if (contador == 5 && numeroDigitado != numeroGerado) {
+            System.out.println("Você errou todas! O número gerado era " + numeroGerado + ".");
         }
-
+        }
     }
-}
+
